@@ -20,7 +20,7 @@ import com.training.domains.ShowRoom;
 @RunWith(Parameterized.class)
 public class ShowRoomTest {
 
-	ShowRoom showRoom = null;
+	NewShowRoom newShowRoom = null;
 	private int key;
 	private Class cls;
 	
@@ -30,18 +30,10 @@ public class ShowRoomTest {
 		this.cls = cls;
 	}
 	
-	
-
-	public ShowRoomTest(int key) {
-		super();
-		this.key = key;
-	}
-
-
 
 	@Before
 	public void setUp() throws Exception {
-		showRoom = new ShowRoom();
+		newShowRoom = new NewShowRoom();
 	}
 
 	@After
@@ -50,14 +42,15 @@ public class ShowRoomTest {
 
 	@Parameters
 	public static Collection<Object[]> data() {
-		Object[][] data = new Object[][]{{1,PassengerCar.class},{2,LuxuryCar.class},{3,SportsCar.class}};
+		Object[][] data = new Object[][]{{1,PassengerCar.class},{2,LuxuryCar.class},
+												{3,SportsCar.class},{4,SportsBike.class}};
 		return Arrays.asList(data);
 	}
 	
 	@Test
 	public void test() {
-		showRoom.getItem(key);
-		Automobile auto = showRoom.getItem(key);
+		//showRoom.getItem(key);
+		Automobile auto = newShowRoom.getItem(key);
 		
 //		assertTrue(auto instanceof Automobile);
 		
